@@ -4,6 +4,7 @@ import ru.xunto.roleplaychat.features.endpoints.PrefixMatchEndpoint;
 import ru.xunto.roleplaychat.framework.Core;
 import ru.xunto.roleplaychat.framework.api.ChatException;
 import ru.xunto.roleplaychat.framework.api.Environment;
+import ru.xunto.roleplaychat.framework.api.Priority;
 import ru.xunto.roleplaychat.framework.api.Request;
 import ru.xunto.roleplaychat.framework.jtwig.JTwigTemplate;
 import ru.xunto.roleplaychat.framework.state.IProperty;
@@ -27,6 +28,10 @@ public class FudgeDicesEndpoint extends PrefixMatchEndpoint {
 
     FudgeDicesEndpoint() throws EmptyPrefixException {
         super("%");
+    }
+
+    @Override public Priority getPriority() {
+        return Priority.HIGH;
     }
 
     @Override public void processEndpoint(Request request, Environment environment)
