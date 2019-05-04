@@ -3,3 +3,4 @@
 run/
 *.iml
 build/
+/eclipse/
