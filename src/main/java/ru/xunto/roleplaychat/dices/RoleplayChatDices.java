@@ -6,7 +6,7 @@ import org.apache.logging.log4j.Logger;
 import ru.xunto.roleplaychat.features.endpoints.PrefixMatchEndpoint;
 import ru.xunto.roleplaychat.forge.RoleplayChat;
 
-@Mod(modid = RoleplayChatDices.MODID, name = RoleplayChatDices.NAME, version = RoleplayChatDices.VERSION, acceptableRemoteVersions = "*")
+@Mod(modid = RoleplayChatDices.MODID, name = RoleplayChatDices.NAME, version = RoleplayChatDices.VERSION, acceptableRemoteVersions = "*", dependencies = "required-after:roleplaychat")
 public class RoleplayChatDices
 {
     public static final String MODID = "@MODID@";
