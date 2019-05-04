@@ -1,0 +1,11 @@
+{% macro optional(text) -%}
+    {%- if text -%}
+        {{- " " -}} {{- text }}
+    {%- endif -%}
+{%- endmacro %}
+
+{% macro optionalwb(text) -%}
+    {%- if text -%}
+        {{- " " -}} ({{- text }})
+    {%- endif -%}
+{%- endmacro %}

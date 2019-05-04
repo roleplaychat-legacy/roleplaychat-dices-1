@@ -1,0 +1,14 @@
+{%- import 'dice_macro.twig' as dmacro -%}
+
+{%- set parts = [] -%}
+{%- for sign in fudge_signs -%}
+    {%- if sign > 0 -%}
+        {%- set parts = merge(parts, "+") -%}
+    {%- elseif sign < 0 -%}
+        {%- set parts = merge(parts, "-") -%}
+    {%- else -%}
+        {%- set parts = merge(parts, "=") -%}
+    {%- endif -%}
+{%- endfor -%}
+
+(( {{ username }} {{- dmacro.optional(label) }} бросает ({{ join(parts, "") }}) от {{ fudge_level -}} {{- dmacro.optionalwb(commentary) }}. Результат: {{ fudge_result }} )){#- -#}
