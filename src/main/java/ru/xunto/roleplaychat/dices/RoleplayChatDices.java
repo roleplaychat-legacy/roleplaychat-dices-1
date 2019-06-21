@@ -2,7 +2,6 @@ package ru.xunto.roleplaychat.dices;
 
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
-import org.apache.logging.log4j.Logger;
 import ru.xunto.roleplaychat.features.endpoints.PrefixMatchEndpoint;
 import ru.xunto.roleplaychat.forge.RoleplayChat;
 

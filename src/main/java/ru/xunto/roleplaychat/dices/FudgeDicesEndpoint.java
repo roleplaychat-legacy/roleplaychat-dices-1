@@ -1,7 +1,6 @@
 package ru.xunto.roleplaychat.dices;
 
 import ru.xunto.roleplaychat.features.endpoints.PrefixMatchEndpoint;
-import ru.xunto.roleplaychat.framework.Core;
 import ru.xunto.roleplaychat.framework.api.ChatException;
 import ru.xunto.roleplaychat.framework.api.Environment;
 import ru.xunto.roleplaychat.framework.api.Priority;
