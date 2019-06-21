@@ -39,7 +39,7 @@ minecraft {
 }
 
 dependencies {
-    compile 'com.github.roleplaychat:RoleplayChat:0.35.4'
+    compile 'com.github.roleplaychat:RoleplayChat:0.35.6'
 }
 
 jar {
