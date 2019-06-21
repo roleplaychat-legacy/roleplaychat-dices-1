@@ -11,11 +11,11 @@ buildscript {
     }
 }
 
-allprojects {
-    repositories {
-        maven { url 'https://jitpack.io' }
-    }
-}
+//allprojects {
+//    repositories {
+//        maven { url 'https://jitpack.io' }
+//    }
+//}
 
 apply plugin: "net.minecraftforge.gradle.forge"
 
@@ -39,7 +39,7 @@ minecraft {
 }
 
 dependencies {
-    compile 'com.github.roleplaychat:RoleplayChat:0.35.6'
+//    compile 'com.github.roleplaychat:RoleplayChat:0.35.6'
 }
 
 jar {
