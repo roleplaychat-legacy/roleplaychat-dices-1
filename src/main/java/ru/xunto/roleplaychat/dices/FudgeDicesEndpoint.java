@@ -1,8 +1,10 @@
 package ru.xunto.roleplaychat.dices;
 
-import ru.xunto.roleplaychat.features.endpoints.PrefixMatchEndpoint;
-import ru.xunto.roleplaychat.framework.api.ChatException;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.util.text.TextComponentString;
+import net.minecraft.util.text.TextFormatting;
 import ru.xunto.roleplaychat.framework.api.Environment;
+import ru.xunto.roleplaychat.framework.api.PrefixMatchEndpoint;
 import ru.xunto.roleplaychat.framework.api.Priority;
 import ru.xunto.roleplaychat.framework.api.Request;
 import ru.xunto.roleplaychat.framework.jtwig.JTwigTemplate;
@@ -33,22 +35,33 @@ public class FudgeDicesEndpoint extends PrefixMatchEndpoint {
         return Priority.HIGH;
     }
 
-    @Override public void processEndpoint(Request request, Environment environment)
-        throws ChatException {
+    protected void sendError(EntityPlayer player, String errorMessage) {
+        TextComponentString component = new TextComponentString(errorMessage);
+        component.getStyle().setColor(TextFormatting.DARK_RED);
+        player.sendMessage(component);
+    }
+
+    @Override public void processEndpoint(Request request, Environment environment) {
         MessageState state = environment.getState();
         String text = state.getValue(Environment.TEXT);
 
         List<String> strings = Arrays.asList(text.split(" "));
 
+        EntityPlayer requester = request.getRequester();
+
         if (strings.size() < 1) {
-            throw new ChatException("Укажите уровень навыка для броска");
+            sendError(requester, "Укажите уровень навыка для броска");
+            environment.interrupt();
+            return;
         }
 
         int level;
         try {
             level = Integer.parseInt(strings.get(0));
-        } catch (Exception e) {
-            throw new ChatException("Укажите уровень навыка для броска");
+        } catch (NumberFormatException e) {
+            sendError(requester, "Укажите уровень навыка для броска");
+            environment.interrupt();
+            return;
         }
 
         String comment = null;

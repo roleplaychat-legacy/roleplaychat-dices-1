@@ -37,7 +37,7 @@ public class DicesEndpoint extends Middleware {
         }
     }
 
-    @Override public void process(Request request, Environment environment) throws ChatException {
+    @Override public void process(Request request, Environment environment) {
         MessageState state = environment.getState();
         String text = state.getValue(Environment.TEXT);
 

@@ -2,8 +2,8 @@ package ru.xunto.roleplaychat.dices;
 
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
-import ru.xunto.roleplaychat.features.endpoints.PrefixMatchEndpoint;
 import ru.xunto.roleplaychat.forge.RoleplayChat;
+import ru.xunto.roleplaychat.framework.api.PrefixMatchEndpoint;
 
 @Mod(modid = RoleplayChatDices.MODID, name = RoleplayChatDices.NAME, version = RoleplayChatDices.VERSION, acceptableRemoteVersions = "*", dependencies = "required-after:roleplaychat")
 public class RoleplayChatDices
