@@ -37,7 +37,7 @@ public class DicesEndpoint extends Middleware {
         }
     }
 
-    @Override public void process(Request request, Environment environment) {
+    @Override public void process(Request request, Environment environment, Runnable next) {
         MessageState state = environment.getState();
         String text = state.getValue(Environment.TEXT);
 
@@ -52,5 +52,7 @@ public class DicesEndpoint extends Middleware {
 
         environment.setTemplate(template);
         environment.setProcessed(true);
+
+        next.run();
     }
 }

@@ -41,7 +41,11 @@ public class FudgeDicesEndpoint extends PrefixMatchEndpoint {
         player.sendMessage(component);
     }
 
-    @Override public void processEndpoint(Request request, Environment environment) {
+    @Override public void process(Request request, Environment environment, Runnable next) {
+        this.processWrapped(request, environment, next);
+    }
+
+    @Override public void processEndpoint(Request request, Environment environment, Runnable next) {
         MessageState state = environment.getState();
         String text = state.getValue(Environment.TEXT);
 
@@ -51,7 +55,6 @@ public class FudgeDicesEndpoint extends PrefixMatchEndpoint {
 
         if (strings.size() < 1) {
             sendError(requester, "Укажите уровень навыка для броска");
-            environment.interrupt();
             return;
         }
 
@@ -60,7 +63,6 @@ public class FudgeDicesEndpoint extends PrefixMatchEndpoint {
             level = Integer.parseInt(strings.get(0));
         } catch (NumberFormatException e) {
             sendError(requester, "Укажите уровень навыка для броска");
-            environment.interrupt();
             return;
         }
 
