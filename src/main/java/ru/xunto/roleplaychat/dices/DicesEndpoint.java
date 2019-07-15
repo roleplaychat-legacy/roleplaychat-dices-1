@@ -33,6 +33,8 @@ public class DicesEndpoint extends PrefixMatchEndpoint {
 
         int dice = defineDice(text);
         if (dice < 0) {
+            RoleplayChatDices.sendError(request.getRequester(),
+                "Синтаксис броска дайсов: d{число}, например: d10, d20");
             flow.stop();
             return;
         }
